@@ -1,0 +1,512 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+
+/* warna background */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    color: #c00401;
+    background: linear-gradient(to right, 
+        #0a0a0a 0%,      
+        #141414 30%, 
+        #1e1e1e 60%, 
+        #383838 100%     
+    );
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* === NAVBAR FIXED UNTUK SEMUA LAYAR === */
+#main-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(15,17,20,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+#main-nav .nav-inner {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Menu */
+#main-nav .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#main-nav .nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 64px;
+  transition: color 0.3s;
+}
+#main-nav .nav-menu a:hover { color: #fe8381; }
+
+/* Tombol Download CV */
+#main-nav .btn-cv {
+  background: #c00401;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+ 
+}
+#main-nav .btn-cv:hover {
+  background: #fe8381;
+  transform: translateY(-2px);
+}
+
+/* Halaman paling pertama yang muncul */
+#header {
+  height: auto;
+  min-height: 0;
+  padding-bottom: 0;
+   /* sembunyikan seluruh header */
+}
+
+
+.container{ padding: 10px 20px; }
+
+#about .container,
+#services .container,
+#portofolio .container,
+#contact .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+
+.nav-glass {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(15,17,20,0.78), rgba(15,17,20,0.55));
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    line-height: 60px;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #c00401;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+/* efek tombol saat cursor lewat */
+nav ul li a:hover::after{ width: 100%; }
+
+#about{ padding: 80px 0; color: #fff; }
+
+#about p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.row{ display: flex; justify-content: space-between; flex-wrap: wrap; }
+
+.about-col1{ flex-basis: 35%; }
+.about-col1 img{ width: 100%; border-radius: 15px; }
+.about-col2{ flex-basis: 60%; }
+
+.subtitle{
+    font-size: 60px;
+    font-weight: 600;
+    color: #c00401;
+}
+
+.tabtitles{ display: flex; margin: 20px 0 40px; }
+.tablinks{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.tablinks::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #c00401;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tablinks.activelink::after{ width: 50%; }
+
+.tabcontents ul li{ list-style: none; margin: 10px 0; }
+.tabcontents ul li span{ color: #c00401; font-size: 14px; }
+.tabcontents{ display: none; }
+.tabcontents.activetab{ display: block; }
+
+#services{ padding: 30px 0; }
+.serviceslist{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.serviceslist div{
+    background: #c00401;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.serviceslist p { color: #fff; }
+.serviceslist div h2{
+    color: #fff; 
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.serviceslist div:hover{
+    background: #fe8381;
+    transform: translateY(-10px);
+}
+
+/* PORTOFOLIO */
+#portofolio{ padding: 50px 0; }
+.worklist{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+
+}
+.work {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #111;   
+}
+
+.work img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;    
+    transition: transform 0.5s;
+}
+
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), #c00401);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+    color: #fff;
+}
+
+.layer a i {
+  margin-top: 10px;
+  color: #fff;
+  
+}
+
+
+.work:hover img { transform: scale(1.1); }
+.work:hover .layer { height: 100%; }
+
+/* Contact */
+.contactleft { flex-basis: 35%; }
+.contactright { flex-basis: 60%; }
+.contactleft a { text-decoration: none; }
+.contactleft a i { color: #c00401; }
+.contactleft p { margin-top: 30px; }
+.contactleft p i { font-size: 25px; transition: transform 0.5s; }
+.contactleft p i:hover { color: #fe8381; transform: scale(1.5); }
+
+.btn {
+    background-color: #c00401;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 50px;
+    cursor: pointer;
+}
+.btn:hover { background: #fe8381; }
+
+.contactright form { width: 100%; }
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #353535;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.btn-cv-mobile {
+    display: none !important;
+  }
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    background: #c00401;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  #main-nav .nav-inner { padding: 0 20px; }
+  #main-nav .nav-menu { gap: 20px; }
+  #about .subtitle { font-size: 36px; }
+}
+
+/* CSS FOR MOBILE */
+
+@media only screen and (max-width: 768px) {
+
+   #main-nav .nav-inner {
+    padding: 0 10px;
+    height: 50px; /* lebih kecil dari desktop */
+    justify-content: space-between;
+  }
+
+  #main-nav .nav-menu {
+    position: static;
+    justify-content: space-between;
+    width: 100%;
+    transform: none;
+    gap: 0px; /* jarak antar menu lebih kecil */
+    font-size: 10px; /* ukuran font lebih kecil */
+  }
+
+  #main-nav .nav-menu a {
+    font-size: 10px;
+    line-height: 50px;
+  }
+
+  #main-nav .btn-cv {
+    padding: 5px 8px; /* tombol lebih kecil */
+    font-size: 9px;
+    right: 10px;
+    position: static;
+    
+  }
+
+  #about {
+    padding: 20px 0; 
+  }
+
+  .about-col1 img {
+    width: 20%; /* atau 70%, 60% sesuai selera */
+    height: auto;
+    margin: 0 auto 12px auto; /* center gambar */
+    display: block;
+  }
+  
+
+  .header-text p {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .header-text h1 {
+    font-size: 24px;
+  }
+
+   #about .container,
+  #services .container,
+  #portofolio .container,
+  #contact .container {
+    padding: 0 20px !important;
+  }
+
+
+  .row {
+    flex-direction: column;
+  }
+
+  #services .container{
+    padding: 0 10px;
+  }
+
+  .serviceslist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .serviceslist div{
+    padding: 20px 12px;
+    border-radius: 10px;
+  }
+
+  .serviceslist div h2 {
+    font-size: 18px;
+  }
+
+  .serviceslist div p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+.serviceslist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 16px;
+  margin-top: 12px;
+}
+
+.worklist {
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+
+.subtitle {
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.contactleft {
+  margin-bottom: 30px;
+}
+
+.btn-cv {
+    display: none !important;
+  }
+
+  .contactright form .btn2 {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
+    margin-right: 15px !important; /* jarak antara 2 tombol */
+  }
+
+/* Munculkan tombol CV di bawah */
+  .contactright form .btn-cv-mobile {
+    display: inline-block !important; /* bukan block, tapi inline-block */
+    background: #c00401 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 14px 25px !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+    transition: background 0.3s !important;
+    margin: 0 !important;
+    float: right !important;
+    vertical-align: middle !important; /* biar sejajar vertikal */
+  }
+
+  .btn-cv-mobile:hover {
+    background: #fe8381;
+  }
+
+
+}
+
+
+/* --- Responsive Fix for About Me section --- */
+@media (max-width: 768px) {
+  
+  /* Stack kolom jadi vertikal dan beri jarak */
+  #about .row {
+    flex-direction: column;
+    gap: 16px;              /* jarak antara foto dan teks */
+  }
+
+  .about-col1, .about-col2 {
+    flex-basis: 100%;
+  }
+
+  /* Gambar biar responsif dan ada jarak di bawahnya */
+  .about-col1 img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;    /* beri ruang antara foto dan judul */
+    padding-top: 1px;
+  }
+
+  /* Ukuran judul About Me di layar kecil */
+  #about .subtitle {
+    font-size: 28px;        /* sebelumnya 60px */
+    line-height: 1.1;
+    margin: 0 0 8px 0;
+  }
+
+  /* Teks paragraf biar enak dibaca */
+  #about p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Kurangi padding container biar pas di layar HP */
+  #about .container {
+    padding: 0 20px;
+  }
+  
+  nav ul { display: none; }
+  nav ul.show { display: flex; }
+}
